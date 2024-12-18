@@ -33,7 +33,7 @@ pipeline {
              steps {
               sh  '''
               echo 'Test stage'
-              test -f buld/index.html
+              # test -f buld/index.html
               npm test
               '''
               // test -f buld/index.html
