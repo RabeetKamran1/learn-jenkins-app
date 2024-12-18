@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+        /*
         stage('Build') {
             agent {
                 docker {
@@ -21,7 +22,7 @@ pipeline {
               '''
                 
             }
-        }
+        }*/
         stage('Test') {
             agent {
                 docker {
@@ -59,7 +60,7 @@ pipeline {
     }
     post {
         always {
-            sh 'hi'
+            sh 'echo "hi"'
             //junit 'test-results/junit.xml'
         }
     }
