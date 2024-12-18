@@ -39,7 +39,14 @@ pipeline {
                         npm test
                         '''
                         // test -f buld/index.html
-                        } 
+                        }
+                        post {
+                                always {
+                                    sh 'echo "hi"'
+                                    junit 'jest-results/junit.xml'
+                                }
+                        }
+
 
                     }
                     stage('E2E') {
@@ -66,8 +73,7 @@ pipeline {
     post {
         always {
             sh 'echo "hi"'
-            junit 'jest-results/junit.xml'
-           // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
 }
