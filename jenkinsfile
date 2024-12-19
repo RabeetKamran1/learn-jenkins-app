@@ -62,8 +62,10 @@ pipeline {
                         node_modules/.bin/serve -s build &
                         sleep 10
                         # npm start
-                        npx playwright test --report=html
+                        npx playwright test 
+                        
                         '''
+                        // npx playwright test --report=html
                         // test -f buld/index.html
                        } 
                     }
@@ -79,8 +81,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    nmp install netlify-cli -g
-                    netlify --version
+                    nmp install netlify-cli
+                    node_modules/.bin/netlify --version
                 '''
             }
           }
