@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    /*
+    
     environment {
         NETLIFY_SITE_ID='ea388cd8-1dc6-402d-9502-db744876cf27'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
-    }*/
+    }
        stages {
 
         stage('Build') {
@@ -102,7 +102,7 @@ pipeline {
             }
 
             environment {
-                CI_ENVIRONMENT_URL = 'PUT YOUR NETLIFY SITE URL HERE'
+                CI_ENVIRONMENT_URL = 'https://eloquent-beijinho-647d2b.netlify.app'
             }
 
             steps {
