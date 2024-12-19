@@ -3,6 +3,7 @@ pipeline {
     /*
     environment {
         NETLIFY_SITE_ID='ea388cd8-1dc6-402d-9502-db744876cf27'
+        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }*/
     stages {
         stage('Build') {
@@ -17,9 +18,9 @@ pipeline {
               sh  '''
               ls -la
               node --version
-             # npm --version
               npm install ci
-              npm run build
+              npm --version
+              # npm run build
               ls -la
               echo "Hello World from jenkin"
               whoami
