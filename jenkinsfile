@@ -1,8 +1,12 @@
 pipeline {
     agent any
+    /*
+    environment {
+        NETLIFY_SITE_ID='ea388cd8-1dc6-402d-9502-db744876cf27'
+    }*/
     stages {
-        /*
         stage('Build') {
+            // some changes again 12:36
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -22,7 +26,7 @@ pipeline {
               '''
                 
             }
-        }*/
+        }
         stage('Test') {
                 parallel {
                     stage('Unit Test') {
@@ -63,7 +67,7 @@ pipeline {
                         sleep 10
                         # npm start
                         npx playwright test 
-                        
+
                         '''
                         // npx playwright test --report=html
                         // test -f buld/index.html
@@ -83,6 +87,7 @@ pipeline {
                 sh '''
                     nmp install netlify-cli
                     node_modules/.bin/netlify --version
+                    echo "Deploying to production SITE_ID : $NETLIFY_SITE_ID"
                 '''
             }
           }
