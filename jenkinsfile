@@ -105,8 +105,7 @@ pipeline {
                 }
             }
         }
-CI_ENVIRONMENT_URL
-        stage('Deploy prod') {
+       stage('Deploy prod') {
             agent {
                 docker {
                     image 'my-playwright'
